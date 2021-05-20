@@ -21,7 +21,7 @@ var snake;
 
 function redraw() {
     if(pause == false) {
-		snake.update();
+	snake.update();
         ctx.fillStyle = "#777";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = "#3e3e3e";
@@ -40,14 +40,18 @@ function redraw() {
 }
 
 window.addEventListener("keydown", ((evt) => {
-    const direction = evt.key.replace("Arrow", "");
-    console.log(direction);
-    snake.changeDirection(direction);
+    if(paused == false) {
+    	const direction = evt.key.replace("Arrow", "");
+    	console.log(direction);
+    	snake.changeDirection(direction);
+    }
 }))
 
 window.addEventListener("resize", ((evt) => {
     resized();
-	redraw();
+    if(paused == false) {
+    	redraw();
+    }
 }))
 
 function resized() {
@@ -66,4 +70,3 @@ function convX(x) {
 function convY(y) {
 	return y*scale + offsetY;
 }
-// This comment is just here to make the Lines 69
