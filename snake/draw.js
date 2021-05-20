@@ -40,7 +40,7 @@ function redraw() {
 }
 
 window.addEventListener("keydown", ((evt) => {
-    if(paused == false) {
+    if(pause == false) {
     	const direction = evt.key.replace("Arrow", "");
     	console.log(direction);
     	snake.changeDirection(direction);
@@ -49,7 +49,7 @@ window.addEventListener("keydown", ((evt) => {
 
 window.addEventListener("resize", ((evt) => {
     resized();
-    if(paused == false) {
+    if(pause == false) {
     	redraw();
     }
 }))
